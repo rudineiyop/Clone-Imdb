@@ -1,0 +1,24 @@
+<div class="grid grid-cols-6 gap-6 py-4 px-5">
+    @for (film of filmCollections; track $index) {
+        <div class="border border-gray-200 rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 relative">
+            <img class="w-full h-[240px] object-cover" [src]="film.Poster" alt="{{film.Title}}">
+            <div class="py-3 px-4 bg-white">
+                <p class="text-yellow-500 text-sm uppercase">{{film.Type}}</p>
+                <a [routerLink]="'film/' + film.imdbID" class="font-bold text-lg hover:text-yellow-400 block break-words">
+                    {{film.Title}}
+                </a>
+                <div class="flex justify-between items-center mt-2 text-gray-600">
+                    <p class="text-sm">{{film.Year}}</p>
+                </div>
+            </div>
+        </div>
+    }
+
+    @empty {
+        @if (params && !filmCollections.length) {
+            <p class="col-span-12 text-center text-gray-600">Tidak ada data pencarian untuk <b>{{params['query']}}</b></p>
+        } @else {
+            <p class="col-span-12 text-center text-gray-600">Tidak ada data film ditemukan</p>
+        }
+    }
+</div>

@@ -1,0 +1,72 @@
+    <div *ngIf="filmDetail" class="max-w-6xl mx-auto mb-3">
+        <div class="flex justify-start mb-4">
+        <button
+          (click)="goHome()"
+          class="bg-gray-500 text-white flex items-center gap-2 pl-3 pr-4 py-2 rounded-lg shadow-md hover:bg-grayy-600 transition-transform transform hover:scale-105 font-semibold"
+        >
+          <!-- Ikon Panah -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+          Kembali
+        </button>
+        </div>
+    </div>
+
+    <div *ngIf="filmDetail" class="p-8 bg-gray-900 text-white rounded-lg shadow-lg max-w-6xl mx-auto mb-3"> 
+    
+    <div class="flex flex-col md:flex-row">
+      <!-- Poster Film -->
+      <div class="flex-shrink-0">
+        <img
+          [src]="filmDetail.Poster"
+          [alt]="filmDetail.Title"
+          class="w-72 h-auto rounded-lg shadow-lg"
+        />
+      </div>
+      <!-- Detail Film -->
+      <div class="md:ml-8 mt-6 md:mt-0 flex-grow">
+        <h1 class="text-4xl font-bold mb-4 mx-4">{{ filmDetail.Title }}</h1>
+        <p class="text-lg text-gray-400 mb-4 mx-5">
+          <span class="font-semibold">Year:</span> {{ filmDetail.Year }} &bull;
+          <span class="font-semibold">Genre:</span> {{ filmDetail.Genre }}
+        </p>
+        <p class="text-gray-300 mb-6 mx-6">{{ filmDetail.Plot }}</p>
+  
+        <div class="mb-6 py-">
+          <p class="text-gray-400 mb-2 mx-6">
+            <span class="font-semibold">Writers:</span> {{ filmDetail.Writer }}
+          </p>
+          <p class="text-gray-400 mx-6">
+            <span class="font-semibold">Stars:</span> {{ filmDetail.Actors }}
+          </p>
+        </div>
+  
+        <div class="flex items-center space-x-6 mx-6">
+          <div class="flex items-center text-yellow-400">
+            <span class="text-3xl font-bold">{{ filmDetail.imdbRating }}</span>
+            <span class="text-gray-400 text-sm ml-1">IMDb Rating</span>
+          </div>
+          <div class="text-gray-400 text-sm">
+            <span class="font-semibold">Popularity:</span> {{ filmDetail.imdbVotes }} votes
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div *ngIf="!filmDetail" class="text-center p-6">
+        <p>Loading...</p>
+    </div>
+  
