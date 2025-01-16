@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomeIndexComponent } from './home-index/home-index.component';
 import { DetailFilmComponent } from './detail-film/detail-film.component';
 import { RouterModule, Routes } from '@angular/router';
+import { PlaylistComponent } from './playlist/playlist.component';
 
 const routes: Routes = [
   {
@@ -17,18 +18,20 @@ const routes: Routes = [
   {
     path: 'film/:id',
     component: DetailFilmComponent
-  }
+  },
+  {
+    path: 'playlist',
+    component: PlaylistComponent,
+  },
 ]
 
 @NgModule({
-  declarations: [
-    DetailFilmComponent
-  ],
+  declarations: [DetailFilmComponent],
   imports: [
-    CommonModule,
-    RouterModule,
+    CommonModule, // Pastikan CommonModule diimpor
     RouterModule.forChild(routes),
+    PlaylistComponent,
     HomeIndexComponent
-  ]
+  ],
 })
-export class HomeModule { }
+export class HomeModule {}

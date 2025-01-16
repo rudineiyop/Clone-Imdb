@@ -1,0 +1,20 @@
+<div class="p-6 container mx-auto">
+    <h1 class="text-2xl font-bold mb-4">Playlist</h1>
+    <div *ngIf="(films$ | async) as films">
+      <div *ngIf="films.length > 0; else emptyState">
+        <div *ngFor="let film of films" class="border p-4 mb-2">
+          <div class="flex items-center space-x-4">
+            <img [src]="film.Poster" alt="" class="w-20 h-auto rounded" />
+            <div>
+              <h2 class="font-medium text-lg">{{ film.Title }}</h2>
+              <p class="text-sm text-gray-500">{{ film.Year }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-template #emptyState>
+        <p class="text-gray-500 text-center">Belum ada film di playlist.</p>
+      </ng-template>
+    </div>
+  </div>
+  
